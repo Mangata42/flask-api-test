@@ -4,25 +4,26 @@
 
 ## Dependencies
 
-The application has only been tested on MacOSX High-Sierra, but it should perfectly work on other Unix-based systems like Ubuntu.
+This program has only been tested on MacOSX High-Sierra, but it should work perflectly on other Unix-based systems like Ubuntu.
 For Windows, check online documentation to see how to create a Python Virtual Environment.
 
->Note: To run the application, make sure Python3 and PIP are installed on your system.
+>Note: To run the program, make sure Python3 and PIP are installed on your system.
 
-Just to be sure, run `pip install -r upgrade pip`
+Pro tip: 
+`pip install -r upgrade pip`
 
   
 
 ## Installation
 
-As I know that developers are lazy, the installation has been simplified. Go to the root of the project folder, and run
+Installation has been simplified (for lazy developpers). Go to the root of the project folder, and run
 
 `source installation.sh`
 
 As mentionned earlier, Python3 and PIP must be installed on your system.
-This script creates a Python Virtual Environment called `virtual_env`, activates it and installs all the dependencies required as listed in `requirements.txt`. Then, it initialises the database and populates it with tables specified in the `migration` folder.
-It also sets an environment variable `FLASK_APP=main.py` which is used by Flask framework to define the application entry point.
-The application is ready to work!
+This script creates a Python Virtual Environment called `virtual_env`, activate it and install all the dependencies required listed in `requirements.txt`. It initates the database and populates it with tables specified in the `migration` folder.
+It also sets an environment variable `FLASK_APP=main.py` which is used by Flask framework to define the application's entry point.
+The program is ready to work!
 
   
 
