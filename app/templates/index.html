@@ -1,0 +1,61 @@
+{% extends 'bootstrap/base.html' %}
+
+	<head>
+		{% block title %} Skills {% endblock %}
+	</head>
+	<body>
+		{% block content %}
+			
+			<h1 align="center">Skills List</h1>
+
+				<div class="container">
+						{% with messages = get_flashed_messages() %}
+						{% if messages %}
+							{% for message in messages %}
+							<div class="alert alert-info" role="alert" align="center">{{ message }}</div>
+							{% endfor %}
+						{% endif %}
+						{% endwith %}
+				</div>
+
+			{% for skill in skill_list %}
+				<table class="table">
+					<tbody>
+						<tr>
+							<td><h3 align="center">{{skill}}</h3></td>
+						</tr>
+					</tbody>
+				</table>	
+				<div align="center">		
+					<form action="/delete" method="POST">
+						{{form.csrf_token}}
+						<input type="hidden" name="delete" value={{skill}}></input>
+						<input type="submit" name="submit" value="Delete"></input>
+					</form>
+					<form action="/edit" method="POST">
+						{{form.csrf_token}}
+						{{form.skill(size=32)}}
+						<input type="hidden" name="edit" value={{skill}}></input>
+						<input type="submit" name="submit" value="Edit"></input>
+					</form>
+				</div>
+			{% endfor %}
+
+			<p>
+				<form action="/add" method="POST">
+					{{form.csrf_token}}
+					<p>
+						{{form.skill.label}}<br>
+						{{form.skill(size=32)}}
+					</p>
+					<p>
+						<input type="submit" name="submit" value="Add"></input>
+					</p>
+				</form>
+				<form action="/delete_db">
+					<p><input type="submit" name="submit" value="Delete DB"></input></p>
+				</form>
+			</p>
+
+		{% endblock %}
+		</body>
